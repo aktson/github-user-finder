@@ -53,10 +53,10 @@ function showProfile (user) {
             <a href = "${user.html_url}" target ="_blank" class="btn btn-primary btn-block mb-2">View profile</a>
         </div>
         <div class = "col-md-9">
-            <span class = "btn btn-light">Public Repos: ${user.public_repos}</span>
-            <span class = "btn btn-secondary">Public Repos: ${user.public_gists}</span>
+            <span class = "btn btn-dark">Public Repos: ${user.public_repos}</span>
+            <span class = "btn btn-info">Public Repos: ${user.public_gists}</span>
             <span class = "btn btn-success">Followers: ${user.followers}</span>
-            <span class = "btn btn-info">Following: ${user.following}</span>
+            <span class = "btn btn-primary">Following: ${user.following}</span>
             <br><br>
             <ul class= "list-group>
                 <li class= "list-group-item">Company: ${user.organizations_url}</li>
@@ -82,9 +82,9 @@ function showRepos (repos) {
                 <a href="${repo.html_url}" target="_blank"> ${repo.name}</a>
             </div>
             <div class= "col-md-6">
-                <span class = "btn btn-light">Stargazers count: ${repo.stargazers_count}</span>
-                <span class = "btn btn-secondary">Watchers: ${repo.watchers_count}</span>
-                <span class = "btn btn-success">Forks: ${repo.forks_count}</span>
+                <span class = "btn btn-dark ">Stargazers count: ${repo.stargazers_count}</span>
+                <span class = "btn btn-primary">Watchers: ${repo.watchers_count}</span>
+                <span class = "btn btn-warning">Forks: ${repo.forks_count}</span>
             </div>
         </div>
     </div>`;
