@@ -5,8 +5,8 @@ const leadParagraph = document.querySelector(".lead");
 //api call
 async function getUser(user) {
     try {
-        const url = `https://api.github.com/users/${user}?client_id=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`;
-        const repoUrl = `https://api.github.com/users/${user}/repos?per_page=5&sort="created: asc"&client_id=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`; 
+        const url = `https://api.github.com/users/${user}?client_id=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`;
+        const repoUrl = `https://api.github.com/users/${user}/repos?per_page=5&sort="created: asc"&client_id=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`; 
 
         const repoResponse = await fetch(repoUrl);
         const response = await fetch(url);
