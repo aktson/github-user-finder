@@ -6,7 +6,7 @@ const leadParagraph = document.querySelector(".lead");
 async function getUser(user) {
     try {
         const url = `https://api.github.com/users/${user}?client_id=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`;
-        const repoUrl = `https://api.github.com/users/${user}/repos?per_page=5&sort="created: asc"&client_id=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`; 
+        const repoUrl = `https://api.github.com/users/${user}/repos?per_page=5&sort="created: asc"&client_id=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`;
 
         const repoResponse = await fetch(repoUrl);
         const response = await fetch(url);
@@ -14,23 +14,23 @@ async function getUser(user) {
         const repoData = await repoResponse.json();
         const data = await response.json();
         console.log(repoData);
-        return  {
-        data, 
-        repoData
+        return {
+            data,
+            repoData
         };
-    }  
+    }
     catch (error) {
-       return leadParagraph.innerHTML = showError(error);
-        }
+        return leadParagraph.innerHTML = showError(error);
+    }
 }
 
 //clear profile
-function clearProfile () {
+function clearProfile() {
     profile.innerHTML = "";
 }
 
 //function to show error
-function showError (message) {
+function showError(message) {
     if (!message) {
         message = "Unknown error occured";
     }
@@ -45,7 +45,7 @@ function clearError() {
 
 // showProfile function
 
-function showProfile (user) {
+function showProfile(user) {
     profile.innerHTML = `
     <div class = "card card-body mb-3">
         <div class = "col-md-3">
@@ -71,14 +71,14 @@ function showProfile (user) {
 
 
 //function to show repos
-function showRepos (repos) {
+function showRepos(repos) {
     let output = "";
-  
-    repos.forEach ((repo) => {
+
+    repos.forEach((repo) => {
         output += `
         <div class= "card card-body mb-2>
         <div class= "row">
-            <div class= "col-md-6">
+            <div class= "col-md-6 mb-4">
                 <a href="${repo.html_url}" target="_blank"> ${repo.name}</a>
             </div>
             <div class= "col-md-6">
@@ -91,24 +91,24 @@ function showRepos (repos) {
     });
     const reposContainer = document.querySelector(".repos");
     reposContainer.innerHTML = output;
-    
+
 };
 
 // event listner on keydown
 searchUser.addEventListener("keyup", (e) => {
-   
-const userText = e.target.value;
+
+    const userText = e.target.value;
     if (userText) {
         getUser(userText)
             .then(response => {
-                    if (response.data.message === "Not Found") {
-                    leadParagraph.innerHTML =  showError ("User not found");
+                if (response.data.message === "Not Found") {
+                    leadParagraph.innerHTML = showError("User not found");
                     setTimeout(clearError, 3000);
-                    }
-                    else {
-                        showProfile(response.data);
-                        showRepos(response.repoData);
-                    }
+                }
+                else {
+                    showProfile(response.data);
+                    showRepos(response.repoData);
+                }
             });
     } else {
         clearProfile();
