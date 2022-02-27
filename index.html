@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github user finder</title>
     <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary mb-3">
-      <div class="container">
-        <a href="#" class="navbar-brand">Github finder</a>
+    <header>
+      <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+          <a href="#" class="navbar-brand">Github user finder</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container searchContainer">
+        <div class="serach card card-body">
+          <h1>Search Github Users</h1>
+          <p class="lead">Enter a username to fetch a user profile and repos</p>
+          <input type="text" id="searchuser" class="form-control" placeholder="Github Username..." />
+        </div>
+        <br />
+        <div id="profile"></div>
       </div>
-    </nav>
-    <div class="container searchContainer">
-      <div class="serach card card-body">
-        <h1>Search Github Users</h1>
-        <p class="lead">Enter a username to fetch a user profile and repos</p>
-        <input type="text" id="searchuser" class="form-control" placeholder="Github Username..." />
-      </div>
-      <br />
-      <div id="profile"></div>
-    </div>
+    </main>
     <footer class="mt-5 p-3 text-center bg-light">GithubFinder&copy;</footer>
     <!-- JavaScript Bundle with Popper -->
     <script
